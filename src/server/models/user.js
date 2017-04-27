@@ -29,3 +29,4 @@ userSchema.plugin(uniqueValidator);
 module.exports = mongoose.models.User ?
     mongoose.model('User') :
     mongoose.model('User', userSchema);
+    

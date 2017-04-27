@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var welcomeCtrl = require('./controllers/welcome');
 var User = require('./models/user'); // get our mongoose model
+var Welcome = require('./models/welcome');
 var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 
 router.get('/welcome', function (req, res, next) {
@@ -9,7 +10,6 @@ router.get('/welcome', function (req, res, next) {
 });
 
 router.get('/setup', function (req, res) {
-
     // create a sample user
     var nick = new User({
         username: 'myuser',
@@ -20,14 +20,25 @@ router.get('/setup', function (req, res) {
     nick.save(function (err) {
         if (err) {
             console.log(err);
-            res.json({ succes: false });
         }
         else {
             console.log('User saved successfully');
-            res.json({ success: true });
         }
     });
 
+    var welcomeMessage = new Welcome({
+        message: 'Welcome to the danger zone!'
+    });
+
+    welcomeMessage.save(function (err) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('Welcome message saved successfully');
+        }
+    });
+
+    res.json({ success: true });
 });
 
 // route to authenticate a user (POST http://localhost:8080/api/authenticate)
