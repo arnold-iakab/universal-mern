@@ -38,3 +38,6 @@ jspm_packages
 
 # Server bundle
 dist/serverBundle.js
+
+# Server config file
+src/server/config.js
