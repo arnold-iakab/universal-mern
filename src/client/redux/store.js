@@ -5,7 +5,7 @@ import mySaga from './sagas'
 import cookie from 'react-cookie';
 import { authenticateSuccess } from '../modules/auth/authActions';
 
-export default function (initialState) {
+export default (initialState) => {
   const sagaMiddleware = createSagaMiddleware();
   const store = createStore(reducers, initialState, applyMiddleware(sagaMiddleware));
   sagaMiddleware.run(mySaga);

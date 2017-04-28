@@ -6,7 +6,7 @@ import LogInPage from './modules/auth/loginContainer';
 import SecretPage from './modules/home/secretContainer';
 import cookie from 'react-cookie';
 
-function redirectIfLoggedIn(nextState, replace) {
+const redirectIfLoggedIn = (nextState, replace) => {
   if (cookie.load('token')) {
     replace({
       pathname: '/',
@@ -15,7 +15,7 @@ function redirectIfLoggedIn(nextState, replace) {
   }
 }
 
-function requireAuth(nextState, replace) {
+const requireAuth = (nextState, replace) => {
   let token = cookie.load('token');
 
   if (typeof token == 'undefined') {

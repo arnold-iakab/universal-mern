@@ -1,8 +1,9 @@
-var mongoose = require('mongoose');
-var uniqueValidator = require('mongoose-unique-validator');
-var Schema = mongoose.Schema;
+import mongoose from 'mongoose';
+import uniqueValidator from 'mongoose-unique-validator';
 
-var welcomeSchema = new Schema({
+let Schema = mongoose.Schema;
+
+let welcomeSchema = new Schema({
     message: {
         type: String,
         unique: true,
@@ -12,6 +13,6 @@ var welcomeSchema = new Schema({
 
 welcomeSchema.plugin(uniqueValidator);
 
-module.exports = mongoose.models.Welcome ?
+export default mongoose.models.Welcome ?
     mongoose.model('Welcome') :
     mongoose.model('Welcome', welcomeSchema);

@@ -7,20 +7,20 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 import cookie from 'react-cookie';
 
-function getToken(credentials) {
+const getToken = (credentials) => {
     return axios.post('http://localhost:3000/api/authenticate', {
         username: credentials.username,
         password: credentials.password
     })
-        .then(function (res) {
+        .then((res) => {
             return res.data.token;
         })
-        .catch(function (error) {
+        .catch((error) => {
             console.log(error);
         });
 }
 
-function* authenticateUser(action) {
+function *authenticateUser(action) {
     try {
         const token = yield call(getToken, action.credentials);
         if (token) {

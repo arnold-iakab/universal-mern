@@ -1,9 +1,11 @@
-var Welcome = require('../models/welcome');
+import Welcome from '../models/welcome';
 
-exports.getMessage = function (req, res) {
-    var query = Welcome.find();
+const getMessage = (req, res) => {
+    let query = Welcome.find();
 
-    query.exec(function (err, results) {
+    query.exec((err, results) => {
         res.end(JSON.stringify({ results: results[0] }));
     });
 };
+
+export default { getMessage };

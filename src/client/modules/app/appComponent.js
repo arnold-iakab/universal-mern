@@ -73,13 +73,13 @@ class App extends Component {
 
 App.propTypes = propTypes;
 
-function mapStateToProps(state, props) {
+const mapStateToProps = (state, props) => {
   return {
     isLoggedIn: isLoggedIn(state, props)
   };
 };
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
     dispatchLogOut: () => dispatch(logOut(dispatch))
   };

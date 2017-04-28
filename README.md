@@ -1,8 +1,8 @@
 # universal-mern
 
 ## Description
-Feeling overwhelemed by other complex boilerplates and desiring to understand how things work, I combined various implementations and created a personal boilerplate for a Universal React application based on the MERN ( MongoDB, Express, React, Node ) stack.
-The project also integrates Redux, Saga and JWT (Json Web Token ) authentication and has hot-reload functionality.
+Feeling overwhelmed by other complex boilerplates and desiring to understand how things work, I combined various implementations and created a personal boilerplate for a Universal React application based on the MERN ( MongoDB, Express, React, Node ) stack.
+The project also integrates Redux, Redux-Saga and JWT (Json Web Token ) authentication and has hot-reload functionality.
 
 ## Prerequisites
 * Node.js
@@ -10,7 +10,7 @@ The project also integrates Redux, Saga and JWT (Json Web Token ) authentication
 
 ## Quick-start
 1. Run `npm install`
-2. Create a `config.js` file in `src/server/` and add your secret and database connection strings like this:
+2. Edit the `config.js` file found in `src/server/` by adding your own secret and database connection strings like this:
 
 ```
 module.exports = {

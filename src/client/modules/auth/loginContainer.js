@@ -62,13 +62,13 @@ class LogInPage extends React.Component {
     }
 }
 
-function mapStateToProps(state, props) {
+const mapStateToProps = (state, props) => {
     return {
         error: error(state, props)
     };
 };
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
     return {
         dispatchLogInUser: (credentials) => dispatch(authenticateUser(credentials)),
         dispatchAuthenticateError: (error) => dispatch(authenticateError(error))

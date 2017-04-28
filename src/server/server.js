@@ -14,10 +14,10 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 const PORT = 3000;
 const app = Express();
 
-var bodyParser = require('body-parser');
-var morgan = require('morgan');
+let bodyParser = require('body-parser');
+let morgan = require('morgan');
 
-var config = require('./config'); // get our config file
+let config = require('./config'); // get our config file
 
 app.set('superSecret', config.secret);
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 //Mongoose
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 
 if (mongoose.connection.readyState !== 1) {
   mongoose.connect(config.database);
@@ -71,7 +71,7 @@ app.use((req, res) => {
                       <head>
                         <meta charset="utf-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1">
-                        <link rel="shortcut icon" href="http://localhost:3000/dist/favicon.ico" type="image/x-icon">
+                        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
                         <title>Universal React Boilerplate</title>
                         <script>
                             window.__INITIAL_STATE__ = ${JSON.stringify(reduxState)};
@@ -96,4 +96,3 @@ const httpServer = app.listen(PORT, () => {
 
 // export httpServer object so universal-hot-reload can access it
 module.exports = httpServer;
-

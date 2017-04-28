@@ -1,11 +1,12 @@
 // get an instance of mongoose and mongoose.Schema
-var mongoose = require('mongoose');
-var uniqueValidator = require('mongoose-unique-validator');
-var validators = require('mongoose-validators');
-var Schema = mongoose.Schema;
+import mongoose from 'mongoose';
+import uniqueValidator from 'mongoose-unique-validator';
+import validators from 'mongoose-validators';
+
+let Schema = mongoose.Schema;
 
 // set up a mongoose model and pass it using module.exports
-var userSchema = new Schema({
+let userSchema = new Schema({
     username: {
         type: String,
         required: true,
@@ -26,7 +27,6 @@ var userSchema = new Schema({
 
 userSchema.plugin(uniqueValidator);
 
-module.exports = mongoose.models.User ?
+export default mongoose.models.User ?
     mongoose.model('User') :
     mongoose.model('User', userSchema);
-    

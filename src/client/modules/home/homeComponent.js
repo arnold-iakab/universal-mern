@@ -14,10 +14,9 @@ export default class Home extends Component {
     this._apiInfo = this._apiInfo.bind(this);
   }
 
-  _apiInfo = () => {
-    return this.props.apiInfo != null ? this.props.apiInfo :
+  _apiInfo = () =>
+    this.props.apiInfo != null ? this.props.apiInfo :
       "You need to log in to see where the API is!";
-  }
 
   render() {
     return (

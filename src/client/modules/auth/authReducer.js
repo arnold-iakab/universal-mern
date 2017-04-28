@@ -11,7 +11,7 @@ const defaultState = {
     error: null
 };
 
-function auth(state = defaultState, action) {
+const auth = (state = defaultState, action) => {
     switch (action.type) {
         case AUTHENTICATE_SUCCESS:
             return Object.assign({}, state, { isLoggedIn: true });

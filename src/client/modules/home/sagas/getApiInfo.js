@@ -3,19 +3,19 @@ import { SET_API_INFO } from '../../../common/constants'
 import axios from 'axios';
 import cookie from 'react-cookie';
 
-function fetchApiInfo() {
+const fetchApiInfo = () => {
     return axios.get('http://localhost:3000/api/', {
         headers: { 'x-access-token': cookie.load('token') }
     })
-        .then(function (res) {
+        .then((res) => {
             return res.data;
         })
-        .catch(function (error) {
+        .catch((error) => {
             console.log(error);
         });
 }
 
-function* getApiInfo(action) {
+function *getApiInfo(action) {
     try {
         let info = yield call(fetchApiInfo);
         info = info.hasOwnProperty('success') ? null : info

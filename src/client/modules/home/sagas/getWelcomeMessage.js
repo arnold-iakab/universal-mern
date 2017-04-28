@@ -2,17 +2,17 @@ import { call, put } from 'redux-saga/effects'
 import { SET_WELCOME_MESSAGE } from '../../../common/constants'
 import axios from 'axios';
 
-function fetchWelcomeMessage() {
+const fetchWelcomeMessage = () => {
     return axios.get('http://localhost:3000/api/welcome')
-        .then(function (res) {
+        .then((res) => {
             return res.data.results.message;
         })
-        .catch(function (error) {
+        .catch((error) => {
             console.log(error);
         });
 }
 
-function* getWelcomeMessage(action) {
+function *getWelcomeMessage(action) {
     try {
         const message = yield call(fetchWelcomeMessage);
         yield put({ type: SET_WELCOME_MESSAGE, message: message });

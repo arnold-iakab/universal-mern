@@ -9,7 +9,7 @@ const defaultState = {
   apiInfo: null
 };
 
-function home(state = defaultState, action) {
+const home = (state = defaultState, action) => {
   switch (action.type) {
     case SET_WELCOME_MESSAGE:
       return Object.assign({}, state, { message: action.message });
