@@ -25,6 +25,6 @@ const auth = (state = defaultState, action) => {
         default:
             return state;
     }
-}
+};
 
 export default auth;

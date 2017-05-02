@@ -7,6 +7,12 @@ import {
 } from '../../common/text';
 import { paperStyle } from '../../common/styles';
 import { MessageDiv } from '../../common/styledComponents';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+  apiInfo: PropTypes.string,
+  message: PropTypes.string.isRequired
+};
 
 export default class Home extends Component {
   constructor(props) {
@@ -59,3 +65,5 @@ export default class Home extends Component {
     );
   }
 }
+
+Home.propTypes = propTypes;

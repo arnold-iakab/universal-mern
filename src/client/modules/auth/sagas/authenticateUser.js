@@ -1,8 +1,8 @@
-import { call, put } from 'redux-saga/effects'
+import { call, put } from 'redux-saga/effects';
 import {
     AUTHENTICATE_SUCCESS,
     AUTHENTICATE_ERROR
-} from '../../../common/constants'
+} from '../../../common/constants';
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 import cookie from 'react-cookie';
@@ -16,9 +16,8 @@ const getToken = (credentials) => {
             return res.data.token;
         })
         .catch((error) => {
-            console.log(error);
         });
-}
+};
 
 function *authenticateUser(action) {
     try {
@@ -28,10 +27,9 @@ function *authenticateUser(action) {
             yield put({ type: AUTHENTICATE_SUCCESS });
             browserHistory.push('/');
         } else {
-            yield put({ type: AUTHENTICATE_ERROR, data: "Invalid credentials!" })
+            yield put({ type: AUTHENTICATE_ERROR, data: "Invalid credentials!" });
         }
     } catch (e) {
-        console.log(e);
     }
 }
 

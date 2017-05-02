@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducer';
 import createSagaMiddleware from 'redux-saga';
-import mySaga from './sagas'
+import mySaga from './sagas';
 import cookie from 'react-cookie';
 import { authenticateSuccess } from '../modules/auth/authActions';
 

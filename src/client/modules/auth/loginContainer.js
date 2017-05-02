@@ -1,14 +1,21 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { connect } from 'react-redux';
 import { authenticateUser, authenticateError } from './authActions';
 import { error } from './selectors';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+    error: PropTypes.string,
+    dispatchAuthenticateError: PropTypes.func.isRequired,
+    dispatchLogInUser: PropTypes.func.isRequired
+};
 
 class LogInPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { credentials: { username: '', password: '' } }
+        this.state = { credentials: { username: '', password: '' } };
         this._handleOnChange = this._handleOnChange.bind(this);
         this._handleSubmit = this._handleSubmit.bind(this);
     }
@@ -62,6 +69,8 @@ class LogInPage extends React.Component {
     }
 }
 
+LogInPage.propTypes = propTypes;
+
 const mapStateToProps = (state, props) => {
     return {
         error: error(state, props)
@@ -73,6 +82,6 @@ const mapDispatchToProps = (dispatch) => {
         dispatchLogInUser: (credentials) => dispatch(authenticateUser(credentials)),
         dispatchAuthenticateError: (error) => dispatch(authenticateError(error))
     };
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogInPage);

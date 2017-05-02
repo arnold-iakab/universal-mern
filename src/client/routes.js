@@ -11,9 +11,9 @@ const redirectIfLoggedIn = (nextState, replace) => {
     replace({
       pathname: '/',
       state: { nextPathname: nextState.location.pathname }
-    })
+    });
   }
-}
+};
 
 const requireAuth = (nextState, replace) => {
   let token = cookie.load('token');
@@ -22,9 +22,9 @@ const requireAuth = (nextState, replace) => {
     replace({
       pathname: '/login',
       state: { nextPathname: nextState.location.pathname }
-    })
+    });
   }
-}
+};
 
 const routes =
   <Route path="/" component={App}>

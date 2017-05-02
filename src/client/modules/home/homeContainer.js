@@ -14,6 +14,14 @@ import {
 import { isLoggedIn } from '../auth/selectors';
 import axios from 'axios';
 import cookie from 'react-cookie';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+  dispatchGetWelcomeMessage: PropTypes.func.isRequired,
+  dispatchGetApiInfo: PropTypes.func.isRequired,
+  message: PropTypes.string.isRequired,
+  apiInfo: PropTypes.string
+};
 
 class HomeContainer extends Component {
   componentDidMount() {
@@ -24,13 +32,14 @@ class HomeContainer extends Component {
   render() {
     return (
       <HomeComponent
-        number={this.props.number}
         message={this.props.message}
         apiInfo={this.props.apiInfo}
       />
     );
   }
 }
+
+HomeContainer.propTypes = propTypes;
 
 const mapStateToProps = (state, props) => {
   return {

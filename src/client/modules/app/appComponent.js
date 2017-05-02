@@ -19,7 +19,10 @@ const AppContainer = styled.div`
 `;
 
 const propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired
+  isLoggedIn: PropTypes.bool.isRequired,
+  dispatchLogOut: PropTypes.func.isRequired,
+  muiTheme: PropTypes.any,
+  children: PropTypes.any.isRequired
 };
 
 class App extends Component {
